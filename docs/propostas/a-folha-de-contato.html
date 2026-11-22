@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposta A — Folha de contato · Douglas de Oliveira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d060b;--surface:#1b0e17;--ink:#fff;--muted:#b3a8b0;--accent:#ff488b;--accent-ink:#0d060b;
+  --field-1:#470c35;--paper:#fff;--paper-ink:#101421;--paper-muted:#4b4f5c;--paper-step:#f2f1f4;
+  --step-small:clamp(.8125rem,.79rem + .1vw,.875rem);--step-body:clamp(1.0625rem,1rem + .25vw,1.1875rem);
+  --step-lead:clamp(1.25rem,1.1rem + .7vw,1.625rem);--step-head:clamp(2rem,1.3rem + 3.2vw,4rem);
+  --m:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 var(--step-body)/1.5 "Bricolage Grotesque",system-ui,sans-serif}
+a{color:inherit}
+img{display:block;max-width:100%}
+h1,h2,h3{font-weight:600;letter-spacing:-.04em;line-height:.95}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(0)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* Hero: faixa iluminada, quatro cantos */
+.hero{min-height:100svh;display:grid;grid-template-rows:auto 1fr auto auto;padding:44px 0}
+.corner{display:flex;justify-content:space-between;align-items:flex-start;padding:0 var(--m);font-size:var(--step-small);font-weight:500}
+.corner nav{display:flex;gap:24px}
+.strip{align-self:center;display:flex;gap:10px;height:34vh;min-height:240px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 var(--m)}
+.strip::-webkit-scrollbar{display:none}
+.strip figure{flex:none;height:100%;scroll-snap-align:center;position:relative}
+.strip img{height:100%;width:auto;filter:brightness(.55);transition:filter .3s}
+.strip figure:hover img,.strip figure.lit img{filter:none}
+.strip figcaption{position:absolute;left:0;top:calc(100% + 10px);font-size:var(--step-small);white-space:nowrap;color:var(--muted)}
+.foot{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;padding:48px var(--m) 0;flex-wrap:wrap}
+.foot h1{font-size:clamp(2.4rem,1.2rem + 3.6vw,4rem);max-width:14ch}
+.foot p{margin-top:16px;max-width:46ch;color:var(--muted)}
+
+/* Seções claras */
+.paper{background:var(--paper);color:var(--paper-ink)}
+section{padding:clamp(96px,12vw,200px) var(--m)}
+.h2{font-size:var(--step-head)}
+.proof h2{max-width:10ch}
+.proof h2 span{display:block;padding-left:16.6%}
+.proof table{width:100%;border-collapse:collapse;margin-top:72px;font-size:var(--step-body)}
+.proof td{padding:14px 12px;vertical-align:top}
+.proof tr:nth-child(odd){background:var(--paper-step)}
+.proof td:first-child{font-weight:600;width:22%}
+.proof td:last-child{text-align:right;color:var(--paper-muted)}
+
+/* Spindow: uma imagem cortada em ladrilhos */
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;padding:0 var(--m)}
+.tile{aspect-ratio:1;background:url(img/spindow-hero.jpg) no-repeat;background-size:600% 400%;overflow:hidden}
+.tile.c{background:var(--field-1);color:var(--ink);padding:16px;display:flex;flex-direction:column;justify-content:space-between;font-size:1.05rem;line-height:1.3}
+.tile.c.k{background:var(--paper-ink)}
+.tile.c.a{background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600}
+.tile.c h2{font-size:clamp(1.6rem,2.6vw,3rem)}
+.tiles-wrap{padding:clamp(96px,12vw,200px) 0}
+.tiles-wrap>p{padding:0 var(--m) 32px;max-width:60ch;font-size:var(--step-lead);line-height:1.3}
+
+/* Serviços: prova pequena ao lado do texto */
+.svc{padding-left:max(var(--m),18vw)}
+.svc .mod{display:grid;grid-template-columns:minmax(0,420px) minmax(0,300px);gap:28px;margin-top:104px}
+.svc .mod:first-of-type{margin-top:64px}
+.panel{background:var(--paper-step);padding:20px;min-height:140px}
+.mod h3{font-size:1.35rem;letter-spacing:-.02em;line-height:1.15}
+.mod p{margin-top:10px;color:var(--paper-muted);font-size:1rem}
+.chat[data-ui]{color:#111b21;display:flex;flex-direction:column;gap:8px;font:400 14px/1.4 system-ui,sans-serif}
+.chat span{max-width:80%;padding:8px 12px;border-radius:10px;background:#fff}
+.chat .me{align-self:flex-end;background:#d9fdd3}
+.chat .who{background:none;padding:0;font-size:12px;color:#54656f}
+.plan[data-ui]{font:400 14px/1.5 system-ui,sans-serif;background:#fff;padding:16px}
+.plan b{display:block;font-size:15px;margin-bottom:6px}
+.plan li{margin-left:18px}
+
+/* Trabalhos: uma faixa por projeto */
+.work{background:var(--bg);color:var(--ink);display:grid;grid-template-columns:13% 1fr;gap:24px}
+.rail{position:sticky;top:32px;align-self:start}
+.rail h2{font-size:1.75rem}
+.runs{display:grid;gap:56px;min-width:0}
+.run .frames{display:flex;gap:8px;height:190px;overflow:hidden}
+.run .frames img{height:100%;width:auto}
+.run .frames .ui{flex:none;height:100%;width:330px;background:var(--surface);padding:16px}
+.run .cap{display:flex;justify-content:space-between;gap:16px;margin-top:10px;font-size:var(--step-small);color:var(--muted)}
+.run .cap b{color:var(--ink);font-weight:500}
+[data-ping][data-state=up]::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#3ddc84;margin-right:8px}
+.runs:hover .run{opacity:.55}.runs .run:hover{opacity:1}.run{transition:opacity .25s}
+.stock[data-ui]{width:100%;border-collapse:collapse;font:400 13px/1.3 system-ui,sans-serif;color:#e8e1e6;margin:0}
+.stock[data-ui] th,.stock[data-ui] td{padding:6px 4px;text-align:left;border-bottom:1px solid #3a2733;background:none;width:auto;font-weight:400;color:inherit}
+.stock[data-ui] th{color:#b3a8b0}
+.stock[data-ui] .low{color:var(--accent)}
+
+/* Contato */
+.contact{display:grid;grid-template-columns:5fr 2fr 1fr 4fr;gap:24px;align-items:start}
+.contact .say{font-size:clamp(1.5rem,1rem + 1.6vw,2.25rem);line-height:1.15;letter-spacing:-.02em;font-weight:500}
+.contact img{width:160px;height:160px;object-fit:cover;grid-column:3}
+.contact .links{grid-column:4}
+.contact .links h2{font-size:1.15rem;letter-spacing:0;line-height:1.3;font-weight:500}
+.contact .links a{overflow-wrap:anywhere;display:block;margin-top:12px;font-size:1.15rem}
+.contact .links small{display:block;margin-top:16px;color:var(--paper-muted);font-size:var(--step-small)}
+footer{padding:12px;display:grid;grid-template-columns:2fr 1fr;gap:8px}
+footer .mark{background:var(--surface);min-height:300px;display:flex;align-items:center;justify-content:center;font-size:clamp(2.6rem,7vw,7rem);font-weight:600;letter-spacing:-.05em}
+footer a.go{background:var(--accent);color:var(--accent-ink);text-decoration:none;padding:24px;font-size:clamp(1.25rem,1rem + 1vw,1.75rem);font-weight:600;letter-spacing:-.02em;display:flex;flex-direction:column;justify-content:space-between}
+
+.js .rise>*{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+.js .rise.in>*{opacity:1;transform:none}
+.js .rise.in>*:nth-child(2){transition-delay:.08s}.js .rise.in>*:nth-child(3){transition-delay:.16s}.js .rise.in>*:nth-child(4){transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.js .rise>*{opacity:1;transform:none;transition:none}}
+
+@media (max-width:760px){
+  .strip{height:46vh}
+  .foot{flex-direction:column;align-items:flex-start}
+  .tiles{grid-template-columns:repeat(3,1fr);gap:6px}
+  
+  .tile.c h2{font-size:6vw}
+  .tile.c{font-size:.95rem}
+  .svc{padding-left:var(--m)}
+  .svc .mod{grid-template-columns:1fr;gap:16px;margin-top:64px}
+  .work{grid-template-columns:1fr}
+  .rail{position:static}
+  .run .frames{height:120px;overflow-x:auto}
+  .run .cap span:nth-child(2){display:none}
+  .contact{grid-template-columns:96px 1fr}
+  .contact .say{grid-column:1/-1;font-size:1.5rem}
+  .contact img{grid-column:1;width:96px;height:96px}
+  .contact .links{grid-column:2}
+  .proof table,.proof tbody,.proof tr,.proof td{display:block;width:auto!important}
+  .proof td{padding:4px 12px}.proof tr{padding:10px 0}.proof td:last-child{text-align:left}
+  .contact .links a{font-size:1rem}
+  footer{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="corner">
+    <a href="#" style="text-decoration:none">Douglas de Oliveira</a>
+    <nav aria-label="Principal"><a href="#trabalhos">Trabalhos</a><a href="#servicos">Serviços</a><a href="#contato">Contato</a></nav>
+  </div>
+  <div class="strip" aria-label="Produtos no ar" tabindex="0">
+    <figure><img src="img/spindow-roda.jpg" width="1440" height="680" alt="Spindow: roda de tempos verbais da plataforma de inglês"></figure>
+    <figure><img src="img/pomelo-hero.jpg" width="1440" height="1000" alt="Pomelo: roda de formatos do app de conversão de arquivos"></figure>
+    <figure><img src="img/khui-hero.jpg" width="1440" height="1150" alt="K-hui: página da academia"></figure>
+    <figure class="lit"><img src="img/spindow-hero.jpg" width="1440" height="1650" alt="Spindow: página inicial da plataforma de inglês para pessoas com dislexia"><figcaption>Spindow · inglês para pessoas com dislexia</figcaption></figure>
+    <figure><img src="img/zammer-picole.jpg" width="1440" height="640" alt="Zammer Sorvetes: picolés na página da marca"></figure>
+    <figure><img src="img/pomelo-passos.jpg" width="1440" height="820" alt="Pomelo: compartilhar, deslizar, pronto"></figure>
+    <figure><img src="img/spindow-app.jpg" width="1440" height="900" alt="Spindow: tela de entrada da plataforma"></figure>
+    <figure><img src="img/spindow-professores.jpg" width="1440" height="640" alt="Spindow: seção dos professores"></figure>
+    <figure><img src="img/zammer-sabores.jpg" width="1440" height="560" alt="Zammer Sorvetes: linhas de sabores"></figure>
+    <figure><img src="img/pomelo-roda.jpg" width="1440" height="520" alt="Pomelo: formatos suportados"></figure>
+    <figure><img src="img/spindow-historia.jpg" width="1440" height="900" alt="Spindow: história da plataforma"></figure>
+  </div>
+  <div class="foot">
+    <div>
+      <h1>Coloco IA dentro do seu produto.</h1>
+      <p>E ela funciona em produção. Sou engenheiro há 15 anos, hoje no Mercado Livre. Construo chat, voz, agentes e automações para startups e SaaS, do protótipo ao ar.</p>
+    </div>
+    <a class="btn" href="#contato">Conte sobre seu projeto</a>
+  </div>
+</header>
+
+<section class="paper proof">
+  <div class="rise">
+    <h2 class="h2">Onde <span>trabalhei</span></h2>
+    <table>
+      <tr><td>Mercado Livre</td><td>Engenheiro de software em soluções de logística</td><td>Hoje</td></tr>
+      <tr><td>CI&amp;T</td><td>App de entregas da maior rede de farmácias do Brasil</td><td>Mobile e backend</td></tr>
+      <tr><td>CI&amp;T</td><td>Sites de uma marca global de bebidas, nos EUA</td><td>Refatoração front-end</td></tr>
+      <tr><td>CI&amp;T</td><td>Plataforma de BI para grandes empresas</td><td>Produto de dados</td></tr>
+    </table>
+  </div>
+</section>
+
+<div class="paper tiles-wrap">
+  <p class="rise"><span>O Spindow ensina inglês para pessoas com dislexia. A IA ouve, corrige a pronúncia e escreve as lições.</span></p>
+  <div class="tiles">
+    <div class="tile c"><h2>Spindow</h2><span>Case principal</span></div>
+    <div class="tile"></div><div class="tile"></div><div class="tile"></div>
+    <div class="tile c k">Tutor de conversa com GPT-4o</div>
+    <div class="tile"></div>
+    <div class="tile"></div><div class="tile"></div>
+    <div class="tile c">Pronúncia avaliada por transcrição de fala</div>
+    <div class="tile"></div><div class="tile"></div><div class="tile"></div>
+    <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+    <div class="tile c k">Assinatura com cartão e Pix Automático</div>
+    <div class="tile"></div>
+    <div class="tile"></div><div class="tile"></div><div class="tile"></div>
+    <a class="tile c a" href="#">Ler o case <span aria-hidden="true">→</span></a>
+    <div class="tile"></div><div class="tile"></div>
+  </div>
+</div>
+
+<section class="paper svc" id="servicos">
+  <h2 class="h2 rise"><span>O que eu construo</span></h2>
+  <div class="mod rise">
+    <div class="panel"><div class="chat" data-ui><span class="who">Tutor · Spindow</span><span>Say it again: “I have been studying”.</span><span class="me">I have been studying</span><span>Perfect. Now with “since Monday”.</span></div></div>
+    <div><h3>IA dentro do seu produto</h3><p>Chat, voz, busca nos seus dados e automação de fluxos, encaixados no que o usuário já faz.</p><p>Integrado ao seu backend, com custo e qualidade medidos.</p></div>
+  </div>
+  <div class="mod rise">
+    <div class="panel"><div class="chat" data-ui><span class="who">WhatsApp · agente</span><span class="me">Oi! Vi o anúncio de vocês</span><span>Oi! Me manda o @ do seu Instagram que eu faço uma análise do perfil agora.</span><span class="me">@meunegocio</span></div></div>
+    <div><h3>Agente de IA no WhatsApp</h3><p>Atende, qualifica e vende dentro da conversa, e sabe a hora de parar.</p><p>Fila, novas tentativas e auditoria de cada mensagem.</p></div>
+  </div>
+  <div class="mod rise">
+    <div class="panel" style="padding:0"><img src="img/pomelo-passos.jpg" width="1440" height="820" alt="Pomelo: três telas do app" loading="lazy"></div>
+    <div><h3>MVP com IA do zero</h3><p>Web ou mobile, com pagamentos e painel, pronto para os primeiros clientes.</p><p>Você recebe o código e um time apto a mantê-lo.</p></div>
+  </div>
+  <div class="mod rise">
+    <div class="panel"><div class="plan" data-ui><b>Sprint de diagnóstico</b><ol><li>Onde a IA entra no seu produto</li><li>Protótipo do caso mais promissor</li><li>Plano, prazo e custo para produção</li></ol></div></div>
+    <div><h3>Comece por um Sprint</h3><p>Uma a duas semanas, escopo fechado. Se o projeto seguir, você já sabe o que vai receber.</p></div>
+  </div>
+</section>
+
+<section class="work" id="trabalhos">
+  <div class="rail"><h2>Trabalhos</h2></div>
+  <div class="runs">
+    <div class="run rise"><div class="frames"><img src="img/spindow-hero.jpg" width="1440" height="1650" alt="Spindow: página inicial" loading="lazy"><img src="img/spindow-roda.jpg" width="1440" height="680" alt="Spindow: roda de tempos verbais" loading="lazy"><img src="img/spindow-app.jpg" width="1440" height="900" alt="Spindow: entrada da plataforma" loading="lazy"><img src="img/spindow-mobile.jpg" width="390" height="844" alt="Spindow no celular" loading="lazy"></div>
+      <div class="cap"><b>Spindow</b><span>IA, voz e assinatura</span><span data-ping="https://spindow.com.br">verificando…</span></div></div>
+    <div class="run rise"><div class="frames"><div class="ui"><div class="chat" data-ui><span class="who">Luvi · WhatsApp</span><span>Seu perfil ficou com nota 64. O ponto mais forte são os vídeos curtos.</span><span class="me">E o mais fraco?</span><span>A bio não diz o que você vende.</span></div></div></div>
+      <div class="cap"><b>Luvi</b><span>Agente de vendas no WhatsApp</span><span>Ciclo de validação encerrado</span></div></div>
+    <div class="run rise"><div class="frames"><img src="img/zammer-picole.jpg" width="1440" height="640" alt="Zammer: picolés" loading="lazy"><img src="img/zammer-sabores.jpg" width="1440" height="560" alt="Zammer: linhas de sabores" loading="lazy"></div>
+      <div class="cap"><b>Zammer Sorvetes</b><span>Pedidos da fábrica às lojas</span><span data-ping="https://zammer.com.br">verificando…</span></div></div>
+    <div class="run rise"><div class="frames"><div class="ui"><table class="stock" data-ui><tr><th>Produto</th><th>Estoque</th><th>Reservado</th><th>Disponível</th></tr><tr><td>Pendente linear 1,2 m</td><td>40</td><td>12</td><td>28</td></tr><tr><td>Spot embutir LED</td><td>18</td><td>15</td><td class="low">3</td></tr><tr><td>Arandela externa</td><td>9</td><td>0</td><td>9</td></tr></table></div></div>
+      <div class="cap"><b>09 Iluminação</b><span>Orçamento, pedido e estoque</span><span>Sistema interno</span></div></div>
+    <div class="run rise"><div class="frames"><img src="img/khui-hero.jpg" width="1440" height="1150" alt="K-hui: página da academia" loading="lazy"></div>
+      <div class="cap"><b>K-hui</b><span>Academia com créditos</span><span data-ping="https://khui.com.br">verificando…</span></div></div>
+    <div class="run rise"><div class="frames"><img src="img/pomelo-hero.jpg" width="1440" height="1000" alt="Pomelo: roda de formatos" loading="lazy"><img src="img/pomelo-mobile.jpg" width="390" height="844" alt="Pomelo no celular" loading="lazy"><img src="img/pomelo-privacidade.jpg" width="1440" height="360" alt="Pomelo: nada sai do aparelho" loading="lazy"></div>
+      <div class="cap"><b>Pomelo</b><span>App na App Store</span><span data-ping="https://pomelofiles.app">verificando…</span></div></div>
+  </div>
+</section>
+
+<section class="paper" id="contato">
+  <div class="contact rise">
+    <p class="say">Aceito poucos projetos por vez. Conte o que você quer colocar no ar.</p>
+    <img src="img/douglas.jpg" width="959" height="957" alt="Douglas de Oliveira" loading="lazy">
+    <div class="links"><h2>Vamos conversar?</h2><a href="mailto:contato@douglasdeoliveira.dev">contato@douglasdeoliveira.dev</a><a href="#">Agendar 30 minutos</a><small>Respondo em até dois dias úteis.</small></div>
+  </div>
+</section>
+
+<footer>
+  <div class="mark">Douglas de Oliveira</div>
+  <a class="go" href="#contato">Conte sobre seu projeto <span aria-hidden="true">→</span></a>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+// Recorta a mesma imagem em todos os ladrilhos, conforme o número de colunas da grade.
+const tiles=[...document.querySelectorAll('.tile')];
+function cut(){
+  const cols=getComputedStyle(document.querySelector('.tiles')).gridTemplateColumns.split(' ').length;
+  const rows=Math.ceil(tiles.length/cols);
+  tiles.forEach((t,i)=>{
+    t.style.backgroundSize=`${cols*100}% ${rows*100}%`;
+    t.style.backgroundPosition=`${(i%cols)/(cols-1)*100}% ${Math.floor(i/cols)/(rows-1)*100}%`;
+  });
+}
+cut();addEventListener('resize',cut);
+</script>
+</body>
+</html>

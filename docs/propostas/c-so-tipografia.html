@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposta C — Só tipografia · Douglas de Oliveira</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=gambarino@400&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;--surface:#f2f2ef;--ink:#0f0f0f;--muted:#5c5c5c;--accent:#dafa9c;--accent-ink:#0f0f0f;
+  --soot:#0f0f0f;--soot-ink:#ffffff;
+  --step-small:clamp(.875rem,.85rem + .1vw,.9375rem);--step-body:clamp(1.0625rem,1rem + .25vw,1.1875rem);
+  --step-lead:clamp(1.25rem,1.1rem + .7vw,1.625rem);--step-poster:clamp(2.5rem,1.4rem + 4.4vw,5.25rem);
+  --m:18px;
+}
+@media (min-width:760px){:root{--m:clamp(18px,3vw,40px)}}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 var(--step-body)/1.5 "General Sans",system-ui,sans-serif}
+a{color:inherit}img{display:block;max-width:100%}
+.serif{font-family:Gambarino,Georgia,serif;font-weight:400;letter-spacing:-.02em;line-height:.92}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;background:var(--ink);color:var(--bg);font-weight:500;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+/* Hero: o nome atravessando o meio */
+.hero{min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;padding:var(--m)}
+.top,.bottom{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.top .say{max-width:36ch;font-size:1.125rem;line-height:1.4}
+.top .say strong{font-weight:500}
+.top .btn{margin-top:16px}
+.top nav,.bottom nav{display:flex;gap:20px;font-size:var(--step-small)}
+.hero h1{align-self:center;transform-origin:50% 50%}
+.hero h1.name{font-size:11vw;white-space:nowrap;line-height:1;width:max-content}
+.bottom{align-items:flex-end;font-size:1rem}
+
+/* Prova */
+.proof{padding:clamp(96px,12vw,200px) var(--m) 0;display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.proof p{grid-column:1/9;font-size:clamp(1.5rem,1rem + 1.4vw,2.25rem);line-height:1.2}
+.proof p span{color:var(--muted)}
+
+/* Serviços em escala de pôster */
+.svc{padding:clamp(120px,18vh,220px) var(--m)}
+.svc ul{list-style:none;padding:0;display:grid;gap:.35em}
+.svc li{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:first baseline;transition:color .2s}
+.svc li .n{grid-column:1/9;font-size:var(--step-poster)}
+.svc li p{grid-column:9/13;font-size:1.0625rem;line-height:1.45}
+.svc li.head .n{color:var(--muted)}
+.svc ul:hover li:not(.head){color:var(--muted)}
+.svc ul li:not(.head):hover{color:var(--ink)}
+
+/* Spindow grande, alívio da tipografia */
+.feature{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;padding:0 var(--m);align-items:end}
+.feature figure{grid-column:1/9;grid-row:1}
+.feature figure img{width:100%;aspect-ratio:16/11;object-fit:cover;object-position:top}
+.feature .txt{grid-row:1;grid-column:9/13;display:grid;gap:16px;padding-bottom:8px}
+.feature h2{font-size:clamp(2.4rem,1.6rem + 2.6vw,4rem)}
+.feature small{color:var(--muted);font-size:var(--step-small)}
+[data-ping][data-state=up]::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#3aa65a;margin-right:8px}
+
+/* Trabalhos: nomes como um parágrafo */
+.work{padding:clamp(120px,14vw,220px) var(--m)}
+.work h2.names{font-size:clamp(1.9rem,1rem + 3vw,4.2rem);line-height:1.05;color:var(--muted);max-width:24ch}
+.gal{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:72px}
+.gal .w7{grid-column:span 7}.gal .w5{grid-column:span 5}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top}
+.gal figcaption{margin-top:10px;font-size:1rem}
+.work .names a{text-decoration:none;color:var(--ink);transition:color .2s}
+.work .names a:hover{color:var(--muted)}
+.work .note{margin-top:32px;font-size:1rem;max-width:60ch}
+
+/* Contato: o e-mail como tipografia de exibição */
+.contact{background:var(--soot);color:var(--soot-ink);min-height:78svh;display:grid;grid-template-rows:auto 1fr auto auto;padding:var(--m)}
+.contact .say{font-size:1.3rem;max-width:32ch}
+.contact a.mail{align-self:end;text-decoration:none;font-size:clamp(2rem,6.2vw,7rem);line-height:1;overflow-wrap:anywhere;transition:color .2s}
+.contact a.mail:hover{color:var(--accent)}
+.contact .row{display:flex;justify-content:space-between;gap:24px;margin-top:48px;font-size:var(--step-small);flex-wrap:wrap}
+.contact .row nav{display:flex;gap:20px}
+.contact .btn{background:var(--accent);color:var(--accent-ink);margin-top:24px}
+
+.js .rise>*{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+.js .rise.in>*{opacity:1;transform:none}
+.js .rise.in>*:nth-child(2){transition-delay:.08s}.js .rise.in>*:nth-child(3){transition-delay:.16s}
+@media (prefers-reduced-motion:reduce){.js .rise>*{opacity:1;transform:none;transition:none}}
+
+@media (max-width:760px){
+  .top{flex-direction:column}
+  .top nav{order:-1;align-self:flex-end}
+  .proof p,.feature figure,.feature div{grid-column:1/-1}
+  .svc li{grid-template-columns:1fr;gap:4px;margin-bottom:24px}
+  .svc li .n,.svc li p{grid-column:1/-1}
+  .svc li .n{font-size:11vw}
+  .svc li p{padding-left:var(--m)}
+  .svc ul:hover li:not(.head){color:var(--ink)}
+  .contact a.mail{font-size:9vw}
+  .gal{grid-template-columns:1fr}.gal .w7,.gal .w5{grid-column:1/-1}
+  .work h2.names{font-size:7vw}
+  .feature .txt,.feature figure{grid-row:auto;grid-column:1/-1}
+  .bottom{flex-direction:column;align-items:flex-start;gap:12px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="top">
+    <div>
+      <p class="say"><strong>Coloco IA dentro do seu produto.</strong> E ela funciona em produção. Engenheiro há 15 anos, hoje no Mercado Livre.</p>
+      <a class="btn" href="#contato">Conte sobre seu projeto</a>
+    </div>
+    <nav aria-label="Principal"><a href="#servicos">Serviços</a><a href="#trabalhos">Trabalhos</a><a href="#contato">Contato</a></nav>
+  </div>
+  <h1 class="serif name">Douglas de Oliveira</h1>
+  <div class="bottom">
+    <span>Engenharia de IA para startups e SaaS</span>
+    <nav aria-label="Redes"><a href="#">GitHub</a><a href="#">LinkedIn</a></nav>
+  </div>
+</header>
+
+<section class="proof" aria-labelledby="onde">
+  <p class="rise"><span id="onde">Onde trabalhei:</span> <b>Mercado Livre</b>, onde estou hoje, e <b>CI&amp;T</b>.</p>
+</section>
+
+<section class="svc" id="servicos" aria-labelledby="svc-h">
+  <ul>
+    <li class="head rise"><h2 class="n serif" id="svc-h">O que eu construo</h2></li>
+    <li class="rise"><span class="n serif">IA no seu produto</span><p>Chat, voz, busca nos seus dados e automação, integrados ao seu backend.</p></li>
+    <li class="rise"><span class="n serif">Agente no WhatsApp</span><p>Atende, qualifica e vende na conversa, com auditoria de cada mensagem.</p></li>
+    <li class="rise"><span class="n serif">MVP com IA</span><p>Web ou mobile, com pagamentos e painel, pronto para os primeiros clientes.</p></li>
+    <li class="rise"><span class="n serif">Sprint de diagnóstico</span><p>Uma a duas semanas, escopo fechado: onde a IA entra, protótipo e plano.</p></li>
+  </ul>
+</section>
+
+<section class="feature" aria-labelledby="sp">
+  <div class="rise txt">
+    <h2 class="serif" id="sp">Spindow</h2>
+    <p>Inglês para pessoas com dislexia. A IA conversa, ouve a pronúncia e escreve as lições; em volta, assinatura com Pix Automático e agenda de professores.</p>
+    <a href="#">Ler o case</a>
+    <small data-ping="https://spindow.com.br">verificando…</small>
+  </div>
+  <figure class="rise"><img src="img/spindow-hero.jpg" width="1440" height="1650" alt="Spindow: página inicial da plataforma de inglês para pessoas com dislexia" loading="lazy"></figure>
+</section>
+
+<section class="work" id="trabalhos">
+  <h2 class="names serif rise"><span>Outros trabalhos: <a href="#">Luvi</a>, <a href="#">Zammer</a>, <a href="#">09 Iluminação</a>, <a href="#">K-hui</a> e <a href="#">Pomelo</a>.</span></h2>
+  <div class="gal">
+    <figure class="rise w7"><img src="img/pomelo-passos.jpg" width="1440" height="820" alt="Pomelo: compartilhar, deslizar e pronto" loading="lazy"><figcaption><b>Pomelo</b> · app de arquivos na App Store</figcaption></figure>
+    <figure class="rise w5"><img src="img/zammer-picole.jpg" width="1440" height="640" alt="Zammer Sorvetes: picolés" loading="lazy"><figcaption><b>Zammer</b> · pedidos da fábrica às lojas e franquias</figcaption></figure>
+    <figure class="rise w5"><img src="img/khui-hero.jpg" width="1440" height="1150" alt="K-hui: página da academia" loading="lazy"><figcaption><b>K-hui</b> · academia com sistema de créditos</figcaption></figure>
+    <figure class="rise w7"><img src="img/spindow-roda.jpg" width="1440" height="680" alt="Spindow: roda de tempos verbais" loading="lazy"><figcaption><b>Spindow</b> · lições e prática de voz</figcaption></figure>
+  </div>
+  <p class="note rise">Também: <b>Luvi</b>, agente de vendas no WhatsApp, e <b>09 Iluminação</b>, orçamento, pedido e estoque. Todos construídos ponta a ponta, do banco de dados à tela.</p>
+</section>
+
+<section class="contact" id="contato" aria-labelledby="ct">
+  <div><h2 class="say" id="ct">Aceito poucos projetos por vez. Conte o que você quer colocar no ar.</h2><a class="btn" href="#">Agendar 30 minutos</a></div>
+  <span></span>
+  <a class="mail serif" href="mailto:contato@douglasdeoliveira.dev">contato@<br>douglasdeoliveira.dev</a>
+  <div class="row"><span>Respondo em até dois dias úteis</span><nav><a href="#">GitHub</a><a href="#">LinkedIn</a></nav></div>
+</section>
+
+<script src="shared.js"></script>
+<script>
+// Assinatura: o nome encolhe levemente quando o primeiro screen sai.
+const h1=document.querySelector('.hero h1');
+// Ajusta o nome para ir de margem a margem.
+function fit(){h1.style.fontSize='100px';const cs=getComputedStyle(h1.parentElement);const w=h1.parentElement.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);h1.style.fontSize=(100*w*0.98/(h1.scrollWidth||1))+'px'}
+document.fonts.ready.then(fit);addEventListener('resize',fit);
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  addEventListener('scroll',()=>{const p=Math.min(scrollY/innerHeight,1);h1.style.transform=`scale(${1-p*.06})`},{passive:true});
+}
+</script>
+</body>
+</html>

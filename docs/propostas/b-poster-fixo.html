@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposta B — Pôster fixo · Douglas de Oliveira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&family=Onest:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1c1c1c;--surface:#262626;--ink:#f1f1ef;--muted:#a9aaa5;--accent:#8fa68e;--accent-ink:#1c1c1c;
+  --field-1:#c8c5ba;--field-1-ink:#1c1c1c;
+  --step-small:clamp(.8125rem,.79rem + .1vw,.875rem);--step-body:clamp(1.0625rem,1rem + .25vw,1.1875rem);
+  --step-lead:clamp(1.25rem,1.1rem + .7vw,1.625rem);--step-head:clamp(2rem,1.3rem + 3.2vw,4rem);
+  --m:clamp(16px,4vw,56px);
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 var(--step-body)/1.5 Onest,system-ui,sans-serif}
+a{color:inherit}img{display:block;max-width:100%}
+.d{font-family:Unbounded,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.03em;line-height:1}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;background:var(--accent);color:var(--accent-ink);font-weight:500;text-decoration:none;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-2px);background:#a3b8a2}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* Hero: cartão sobre uma sala escura */
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;padding:var(--m);overflow:hidden}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;filter:brightness(.55) grayscale(.3)}
+.card{position:relative;width:min(100%,780px);min-height:62svh;background:var(--field-1);color:var(--field-1-ink);padding:32px;display:grid;grid-template-rows:auto 1fr auto;gap:32px}
+.card h1{display:flex;justify-content:space-between;gap:16px;font-size:clamp(1.75rem,1rem + 2.6vw,3rem)}
+.facts{display:grid;gap:24px;align-content:start;font-size:var(--step-lead);line-height:1.2}
+.facts p:last-child{max-width:30ch;font-size:var(--step-body);line-height:1.5}
+.card .row{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:var(--step-small)}
+.card .btn{background:var(--accent-ink);color:var(--field-1)}
+.card .btn:hover{background:#000}
+
+/* Prova: nomes correndo pelas bordas */
+.band{padding:clamp(80px,10vw,160px) 0;overflow:hidden}
+.band h2{padding:0 var(--m);font-size:var(--step-small);font-family:Onest;font-weight:500;color:var(--muted);text-transform:none;letter-spacing:0}
+.band .names{font-family:Unbounded,sans-serif;text-transform:uppercase;display:flex;gap:.6em;white-space:nowrap;font-size:clamp(3rem,10vw,9rem);margin-top:16px;animation:run 26s linear infinite;width:max-content}
+.band .names span:nth-child(3n+1){color:var(--muted)}.band .names span:nth-child(3n){color:var(--accent)}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* Corrida fixa: "Em produção" parado, os sistemas passando */
+.pin{position:relative}
+.pin .title{position:sticky;top:0;height:100svh;display:flex;align-items:center;justify-content:center;z-index:2;pointer-events:none;mix-blend-mode:difference;color:#fff}
+.pin .title h2{font-size:clamp(3rem,12vw,12rem);text-align:center}
+.panels{margin-top:-100svh}
+.panel{min-height:100svh;display:grid;place-items:center;align-content:center;gap:16px;padding:var(--m)}
+.panel figure{width:min(46vw,620px);aspect-ratio:4/5;overflow:hidden;background:var(--surface)}
+.panel figure img{width:100%;height:100%;object-fit:cover;object-position:top}
+.panel .cap{width:min(46vw,620px);display:flex;justify-content:space-between;gap:16px;font-size:var(--step-small);color:var(--muted)}
+.panel .cap b{color:var(--ink);font-weight:500}
+[data-ping][data-state=up]::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#7ee08a;margin-right:8px}
+.chatwrap{height:100%;display:flex;align-items:center;padding:24px}
+.chat[data-ui]{display:flex;flex-direction:column;gap:10px;font:400 15px/1.4 system-ui,sans-serif;color:#111b21;width:100%}
+.chat span{max-width:82%;padding:10px 14px;border-radius:10px;background:#fff}
+.chat .me{align-self:flex-end;background:#d9fdd3}
+.chat .who{background:none;padding:0;color:var(--muted);font-size:13px}
+
+/* Serviços, em fluxo, medida estreita */
+.svc{background:var(--field-1);color:var(--field-1-ink);padding:clamp(96px,12vw,200px) var(--m)}
+.svc>h2{font-size:var(--step-head);max-width:16ch}
+.svc ol{list-style:none;padding:0;margin-top:72px;display:grid;gap:56px}
+.svc li{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;align-items:baseline}
+.svc li h3{font-size:clamp(1.4rem,1rem + 1.6vw,2.4rem)}
+.svc li p{font-size:var(--step-body)}
+.svc li.first h3{color:#3f5a3e}
+
+/* Contato: cartão sobre a foto */
+.contact{position:relative;min-height:90svh;display:grid;align-items:end;padding:var(--m);overflow:hidden}
+.contact>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.5)}
+.contact .card2{position:relative;background:var(--bg);padding:32px;max-width:560px;display:grid;gap:20px}
+.contact h2{font-size:clamp(1.6rem,1rem + 2vw,2.6rem)}
+.contact a.mail{font-size:var(--step-lead);overflow-wrap:anywhere}
+footer{padding:clamp(80px,10vw,160px) var(--m) 40px;overflow:hidden}
+footer .d{font-size:5.2vw}
+footer .places{margin-top:56px;display:flex;flex-wrap:wrap;gap:16px 48px;font-size:var(--step-lead)}
+footer .places a{color:var(--accent)}
+footer small{display:block;margin-top:72px;color:var(--muted);font-size:var(--step-small)}
+
+.js .rise>*{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+.js .rise.in>*{opacity:1;transform:none}
+.js .rise.in>*:nth-child(2){transition-delay:.08s}.js .rise.in>*:nth-child(3){transition-delay:.16s}.js .rise.in>*:nth-child(4){transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.js .rise>*{opacity:1;transform:none;transition:none}.band .names{animation:none}}
+
+@media (max-width:760px){
+  .card{min-height:70svh;padding:24px}
+  .card h1{font-size:7vw}
+  footer .d{font-size:8vw}
+  .panel figure,.panel .cap{width:100%}
+  .pin .title{align-items:flex-start;padding-top:16px}
+  .pin .title h2{font-size:12vw}
+  .svc li{grid-template-columns:1fr;gap:8px}
+  .contact .card2{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="img/spindow-hero.jpg" width="1440" height="1650" alt="">
+  <div class="card">
+    <h1 class="d"><span>IA</span><span>em</span><span>produção</span></h1>
+    <div class="facts">
+      <p>Douglas de Oliveira<br>Engenheiro de software, 15 anos<br>Hoje no Mercado Livre</p>
+      <p>Coloco IA dentro do seu produto: chat, voz, agentes e automações para startups e SaaS, do protótipo ao ar.</p>
+    </div>
+    <div class="row"><span>Poucos projetos por vez</span><a class="btn" href="#contato">Conte sobre seu projeto</a><a href="#trabalhos">Ver trabalhos</a></div>
+  </div>
+</header>
+
+<section class="band">
+  <h2 class="names d" aria-label="Onde trabalhei: Mercado Livre e CI&amp;T"><span>Onde trabalhei</span><span>Mercado Livre</span><span>CI&amp;T</span><span>Mercado Livre</span><span>CI&amp;T</span><span>Onde trabalhei</span><span>Mercado Livre</span><span>CI&amp;T</span></h2>
+  <p style="padding:0 var(--m);margin-top:24px;max-width:62ch;color:var(--muted)">Hoje, logística no Mercado Livre. Na CI&amp;T, o app de entregas da maior rede de farmácias do Brasil, sites de uma marca global de bebidas nos EUA e uma plataforma de BI.</p>
+</section>
+
+<section class="pin" id="trabalhos" aria-label="Sistemas no ar">
+  <div class="title"><h2 class="d">No ar</h2></div>
+  <div class="panels">
+    <div class="panel rise"><figure><img src="img/spindow-hero.jpg" width="1440" height="1650" alt="Spindow: página inicial da plataforma de inglês para pessoas com dislexia" loading="lazy"></figure>
+      <div class="cap"><b>Spindow · IA de voz para dislexia</b><span data-ping="https://spindow.com.br">verificando…</span></div></div>
+    <div class="panel rise"><figure><div class="chatwrap"><div class="chat" data-ui><span class="who">Luvi · WhatsApp</span><span class="me">Oi! Vi o anúncio de vocês</span><span>Oi! Me manda o @ do seu Instagram que eu analiso o perfil agora.</span><span class="me">@meunegocio</span><span>Nota 64. O ponto forte são os vídeos curtos. O mais fraco: a bio não diz o que você vende.</span></div></div></figure>
+      <div class="cap"><b>Luvi · agente de vendas no WhatsApp</b><span>Ciclo de validação encerrado</span></div></div>
+    <div class="panel rise"><figure><img src="img/pomelo-hero.jpg" width="1440" height="1000" alt="Pomelo: roda de formatos do app" loading="lazy" style="object-position:70% 50%"></figure>
+      <div class="cap"><b>Pomelo · app na App Store</b><span data-ping="https://pomelofiles.app">verificando…</span></div></div>
+  </div>
+</section>
+
+<section class="svc" id="servicos">
+  <h2 class="d rise"><span>O que eu construo</span></h2>
+  <ol>
+    <li class="rise first"><h3 class="d">IA no seu produto</h3><p>Chat, voz, busca nos seus dados e automação de fluxos, integrados ao seu backend, com custo e qualidade medidos.</p></li>
+    <li class="rise"><h3 class="d">Agente no WhatsApp</h3><p>Atende, qualifica e vende dentro da conversa. Com fila, novas tentativas e auditoria de cada mensagem.</p></li>
+    <li class="rise"><h3 class="d">MVP com IA</h3><p>Web ou mobile, com pagamentos e painel, pronto para os primeiros clientes, como Zammer, 09 Iluminação e K-hui.</p></li>
+    <li class="rise"><h3 class="d">Sprint de diagnóstico</h3><p>Uma a duas semanas, escopo fechado: onde a IA entra, um protótipo e o plano para produção.</p></li>
+  </ol>
+</section>
+
+<section class="contact" id="contato">
+  <img src="img/spindow-historia.jpg" width="1440" height="900" alt="" loading="lazy">
+  <div class="card2 rise"><img src="img/douglas.jpg" width="959" height="957" alt="Douglas de Oliveira" loading="lazy" style="width:96px;height:96px;object-fit:cover"><h2 class="d">Vamos conversar</h2><p>Aceito poucos projetos por vez. Conte o que você quer colocar no ar.</p><a class="mail" href="mailto:contato@douglasdeoliveira.dev">contato@douglasdeoliveira.dev</a><a class="btn" href="#">Agendar 30 minutos</a></div>
+</section>
+
+<footer>
+  <p class="d">Douglas de Oliveira</p>
+  <div class="places"><a href="#">GitHub</a><a href="#">LinkedIn</a><a href="mailto:contato@douglasdeoliveira.dev">E-mail</a></div>
+  <small>Atendo projetos no Brasil e no exterior</small>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>
