@@ -1,4 +1,4 @@
-# douglasdeoliveira.dev — Especificação do site
+# douglasoliveira.dev.br — Especificação do site
 
 Site de serviços de desenvolvimento com foco em IA. Substitui o site estático atual deste repositório (o antigo fica no histórico do git).
 
@@ -8,7 +8,7 @@ Status: decisões fechadas em 21/11/2026, revisadas no mesmo dia após o primeir
 
 ## 1. Posicionamento
 
-- **Marca pessoal**, profissional solo. Domínio `douglasdeoliveira.dev`. Sem "nós".
+- **Marca pessoal**, profissional solo. Domínio `douglasoliveira.dev.br` (DNS no Cloudflare desde 24/11/2026). Sem "nós".
 - **Público principal:** startups e SaaS que querem IA dentro do produto. **Secundário:** PMEs (via Agente de WhatsApp).
 - **Narrativa:** 15 anos construindo sistemas em escala — hoje aplicados a colocar IA em produção. O diferencial é engenharia de produção, não prompt.
 - **Vínculo atual:** engenheiro no Mercado Livre, dito explicitamente. Sem mensagem de escassez: o site convida, não filtra.
@@ -108,7 +108,7 @@ Rascunhos podem ser gerados a partir dos repositórios; voz final do autor.
 - **Formulário curto (4 campos):** o que você constrói · estágio da empresa · prazo · faixa de orçamento (até R$ 15 mil / R$ 15–50 mil / acima de R$ 50 mil / ainda não sei; equivalentes em USD no `/en`).
 - Faixa compatível → **calendário Cal.com embutido** aparece na hora. "Ainda não sei" → resposta por e-mail.
 - Calendário só com os horários liberados pelo autor.
-- Envio via Resend, de `site@douglasdeoliveira.dev` para `contato@douglasdeoliveira.dev` (redirecionado para a caixa pessoal).
+- Envio via Resend, de `site@douglasoliveira.dev.br` para `contato@douglasoliveira.dev.br` (redirecionado para a caixa pessoal).
 - Anti-spam: Cloudflare Turnstile.
 - Sem botão de WhatsApp, sem newsletter.
 
@@ -145,8 +145,9 @@ Sem banco de dados, sem CMS, sem autenticação, sem chamadas de IA no site.
 - [ ] Confirmar que o contrato com o Mercado Livre permite prestar serviço por fora.
 - [ ] Pedir depoimentos e logos de Zammer, 09 Iluminação e K-hui.
 - [ ] Definir horários disponíveis no Cal.com.
-- [ ] Configurar redirecionamento de `contato@douglasdeoliveira.dev` e verificar domínio no Resend.
+- [ ] Configurar redirecionamento de `contato@douglasoliveira.dev.br` e verificar domínio no Resend.
 - [ ] Revisar a versão em inglês.
+- [ ] Decidir o destino de `douglasdeoliveira.dev` (DNS hoje no NS1): redirecionar 301 para `douglasoliveira.dev.br` ou deixar expirar.
 
 ## 10. Decisões descartadas (e por quê)
 

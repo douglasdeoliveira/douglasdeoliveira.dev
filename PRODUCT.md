@@ -47,7 +47,7 @@ Engineering for production, not prompts. Fifteen years building systems that can
 
 ## Brand Commitments
 
-- Name: Douglas de Oliveira. Domain: `douglasdeoliveira.dev`. Contact: `contato@douglasdeoliveira.dev`.
+- Name: Douglas de Oliveira. Domain: `douglasoliveira.dev.br`. Contact: `contato@douglasoliveira.dev.br`.
 - Voice: first person, direct, short sentences, verifiable claims. Banned: "revolucione", "potencialize", "o futuro é agora" and similar hype.
 - Hero line: **"Coloco IA dentro do seu produto. E ela funciona em produção."**
 - Social: GitHub and LinkedIn only.

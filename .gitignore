@@ -1,3 +1,10 @@
 .DS_Store
 .taste-skill/
 .impeccable/questions/
+node_modules/
+.next/
+next-env.d.ts
+*.tsbuildinfo
+.env*
+!.env.example
+.vercel/
